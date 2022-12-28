@@ -1,0 +1,214 @@
+#header_P {
+    width: 100%;
+    min-width: 1080px;
+    height: 10vh;
+}
+
+header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    padding: 0 0 0 30px;
+}
+
+.second{
+    width: 600px;
+    height: 100%;
+    display: flex;
+}
+
+.third{
+    width: 310px;
+    height: 100%;
+    display: flex;
+}
+
+header a{
+    text-decoration : none;
+}
+
+header li{
+    list-style: none;
+}
+
+/* 로고 */
+.logo_P{
+    height: 100%;
+    width: 200px;
+    /* border: 2px solid red; */
+}
+
+.logo_P img{
+    width: 100%;
+    height: 80px;
+    object-fit: fill;
+}
+
+/* 메뉴 */
+.menu_P{
+    width: 200px;
+    /* border: 2px solid violet; */
+    height: 100%;
+}
+
+#menuin_P{
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu_P a:hover{
+   color: #F9D142;
+}
+
+.category_P a{
+    color: white;
+    text-decoration : none;
+    transition: .3s;
+}
+
+.drama_P a{
+    color: white;
+    text-decoration : none;  
+    transition: .3s;
+}
+
+/* 서치바 */
+.searchBox_P{
+    /* border: 3px solid orange; */
+    width: 600px; 
+    height: 100%;
+    display:flex;
+    align-items: center;
+    position: relative;
+}
+
+.search_P {
+    display:flex;
+    justify-content: center;
+    height:50%;
+    background: #292826;
+    border-bottom: 1px solid grey;
+    transition: .5s;
+}
+
+.search_P>input {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #25231e;
+    font-size: 1rem;
+    color: white;
+    transition: .5s;
+}
+
+#sicon_P{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 50;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .3s;
+    background-color: transparent;
+}
+
+#sicon_P:hover{
+    transform: translateY(-50%) scale(1.2,1.2);
+}
+
+/* 아이콘 드롭다운 */
+.dropdown_P{
+    width: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color:#292826;
+    height: 100%;
+    /* border: 2px solid blue; */
+}
+
+.loginicon_P{
+    font-size: 3rem;
+    color: #F9D142;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.loginicon_P:hover{
+    transform: scale(1.2,1.2);
+}
+
+#drop-content_P{
+    position: absolute;
+    top:75%;
+    left: -200%;
+    z-index: 1;
+    height: 80px;
+}
+
+#drop-content_P a{
+    display:block;
+    font-size: 20px;
+    color: #F9D142;
+    text-decoration: none;
+}
+
+.drop-contentul_P{
+    list-style : none;
+    background-color : #F9D142;
+    width:150px;
+}
+
+.dropicon_P{
+  color: white;
+  background-color: transparent;
+  margin-right: 0.5rem;
+}
+
+.drop-contentli{
+    padding-left: 1.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: .2s;
+    height: 50px;
+    background-color: transparent;
+}
+
+.menus_P{
+    background-color: transparent;
+    transition: .3s;
+}
+
+.drop-contentli:hover .menus_P{
+    /* background-color:#d4d4d4  */
+    color: var(--colorBlack);
+}
+
+
+.login_P{
+    width: 260px;
+    height: 100%;
+    position: relative; /*07-24 최원석 수정*/
+    display: flex;  /*07-24 최원석 수정*/
+    align-items: center;    /*07-24 최원석 수정*/
+    /* border: 3px solid burlywood; */
+    
+}
+

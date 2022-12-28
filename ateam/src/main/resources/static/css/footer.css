@@ -1,0 +1,153 @@
+/* footer 전체 컨테이너 */
+.footerContainer_K{
+    width: 70%;
+    height: 30vh;
+    /* display: flex; */
+    margin: auto;
+    color: #ababab;
+}
+/* 공지사항란 전체 영역 */
+.textRolling_k{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    position: relative;
+    border: solid #d7d7d7; border-width: 1px 0;
+    /* border: 1px solid yellow; */
+}
+.notice_K{
+    width: 8vw;
+    height: 7.5vh;
+    line-height: 8vh;
+    font-size: 1.3rem;
+    /* border: 1px solid red; */
+}
+.notice_K:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+.noticeSlide_K{
+    width: 30vw;
+    height: 7.5vh;
+    overflow: hidden;
+    position: relative;
+    /* border: 1px solid blue; */
+}
+.noticeSlide_K > ul{
+    list-style: none;
+    line-height: 8vh;
+    font-size: 1.2rem;
+}
+.noticeSlide_K > ul > li:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+
+.noticeSlide_K li{
+    position: absolute;
+    /* animation-timing-function: ease; */
+    /* opacity: 1; */
+}
+
+/* 공지사항 옆 제목 슬라이드 키프레임 효과 영역 */
+.noticeSlide_K li.Slideone_K{
+    color: #F9D142;
+    animation: scroll-Up 3.5s linear infinite;
+}
+.noticeSlide_K li.Slidetwo_K{
+    color: #F9D142;
+    animation: scroll-Up 3.5s linear infinite;
+}
+/* 공지사항 오른쪽 로고 이미지 div 영역 */
+.noticeLogo_K{
+    width: 14vw;
+    height: 7.5vh;
+    position: absolute;
+    right: 0;
+    /* border: 1px solid blanchedalmond; */
+}
+/* 로고별 각각 클래스네임 이용하여 JS로 링크연결하기 위해
+css 효과 따로 부여함 */
+.logoface_K{
+    width: 3vw;
+    height: 3vh;
+    margin-top: 2vh;
+}
+.logoface_K:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+.logoins_K{
+    width: 3vw;
+    height: 3vh;
+    margin-top: 2vh;
+}
+.logoins_K:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+.logotwi_K{
+    width: 3vw;
+    height: 3vh;
+    margin-top: 2vh;
+}
+.logotwi_K:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+.logoyou_K{
+    width: 3vw;
+    height: 3vh;
+    margin-top: 2vh;
+}
+.logoyou_K:hover{
+    color: #F9D142;
+    cursor: pointer;
+}
+
+/* 홈페이지 바닥글 영역 */
+.footerone_K{
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    /* border: 1px solid yellow; */
+}
+.footerone_K > ul{
+    list-style: none;
+}
+.footerone_K > ul > li{
+    float: left;
+    margin: 1.5vh 1.5vw 1vh 0;
+}
+.footerone_K > ul > li:hover{
+    /* 마우스 오버시 트렌지션 효과 0725 */
+    transition: .3s;
+    color: #F9D142;
+    cursor: pointer;
+}
+.footertwo_K{
+    width: 100%;
+    height: 17vh;
+    display: flex;
+    padding: 1.5vh 0 0 0;
+    font-size: 0.7rem;
+    line-height: 3vh;
+    /* position: relative; */
+    /* border: 1px solid yellow; */
+}
+
+/* 공지사항 옆 제목 슬라이드 키프레임 효과 영역 */
+@keyframes scroll-Up {
+    0%   { 
+
+    transform: translateY(60%);       
+    }
+
+    50%{
+        color: var(--colorYellow);
+    }
+    100% { 
+
+    transform: translateY(-60%); 
+    }
+}
