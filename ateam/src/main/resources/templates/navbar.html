@@ -1,16 +1,69 @@
-<nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">영화 리뷰</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">로그인</a>
-                </li>
-            </ul>
+<nav th:fragment="navbarFragment" class="navbar navbar-expand-lg">
+    <div id="container_S">
+        <div id="header_P">
+            <header>
+                <div class="first">
+                    <div class="logo_P">
+                        <a th:href="@{/main}"><img th:src="@{/img/mainlogo_4.png}" alt="" /></a>
+                    </div>                
+                    <nav class="menu_P">
+                        <ul id="menuin_P">
+                            <li class="category_P"><a th:href="@{/main}">공지사항</a></li>
+                            <li class="drama_P"><a th:href="@{/main}">개봉 예정 영화</a></li>
+                            <li class="drama_P"><a th:href="@{/main}">추천 게시판</a></li>
+                            <li class="drama_P"><a th:href="@{/review/list}">리뷰 게시판</a></li>
+                            <li class="drama_P"><a th:href="@{/main}">Q&A</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="second">
+                    <div class="searchBox_P">
+                        <div class="search_P">
+                            <input class="searchTxt_P" type="text" placeholder="제목을 검색하세요.">
+                            <ion-icon name="search-outline" id="sicon_P"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="third">
+                    <div class="dropdown_P">
+                        <ion-icon name="person-circle-outline" class="loginicon_P" onclick="dp_menu()"></ion-icon>
+                        <div style="display: none;" id="drop-content_P">
+                            <ul class="drop-contentul_P">
+                                <li class="drop-contentli">
+                                    <ion-icon name="settings-outline" class="dropicon_P"></ion-icon> <span class="menus_P" id="profile_C">프로필 관리</span>
+                                    <div id="userDiv_C">
+                                        <div>
+                                            <span>등급 :</span><span id="loginAuth_C"></span>
+                                        </div>
+                                        <div>
+                                            <span>결제 기간 :</span><span id="loginPayment_C"></span>
+                                        </div>
+                                        <div>
+                                            <span>잔여 일수 :</span><span id="remainDays_C"></span>
+                                        </div>
+                                        <div>
+                                            <a id="coupon">쿠폰쓰기</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <a th:href="@{/signOut}">
+                                <li class="drop-contentli">
+                                    <ion-icon name="exit-outline" class="dropicon_P"></ion-icon> <span class="menus_P" id="logoutBtn_C">로그아웃</span>
+                                </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="login_P">
+                        <span id="loginID_C"></span>
+                        <span id="loginText_C">님 환영합니다.</span>
+                        
+                        <!-- <button id="logoutBtn_C">로그아웃</button> -->
+                        <button id="manageBtn_C">회원관리</button>
+                        <div id="manageDiv_C"></div>
+                    </div>
+                </div>
+            </header>
         </div>
-    </div>
+        
 </nav>
