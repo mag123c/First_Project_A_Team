@@ -1,7 +1,7 @@
-/* 테마 컬러
--노랑
+/* �뀒留� 而щ윭
+-�끂�옉
 #F9D142
--검정
+-寃��젙
 #292826 */
 
 * {
@@ -70,7 +70,7 @@
     cursor: pointer;
     margin-left: 3vw;
     margin-top: 1vw;
-    /* 클릭시 메인페이지 링크 */
+    /* �겢由��떆 硫붿씤�럹�씠吏� 留곹겕 */
 }
 /* #signUp_S {
     width: 6vw;
@@ -87,8 +87,8 @@
     font-size: 1em;
     margin-right: 3vw;
     margin-top: 1vw;
-    클릭시 모달창 띄우거나 따로 회원가입 페이지로 이동 예정, 회의때 얘기해보고 결정
-    깔끔한 구성을 위해 mainView 부분 하단으로 회원가입 이동 건의 후 수정 예정
+    �겢由��떆 紐⑤떖李� �쓣�슦嫄곕굹 �뵲濡� �쉶�썝媛��엯 �럹�씠吏�濡� �씠�룞 �삁�젙, �쉶�쓽�븣 �뼐湲고빐蹂닿퀬 寃곗젙
+    源붾걫�븳 援ъ꽦�쓣 �쐞�빐 mainView 遺�遺� �븯�떒�쑝濡� �쉶�썝媛��엯 �씠�룞 嫄댁쓽 �썑 �닔�젙 �삁�젙
 } */
 
 #main_S {
@@ -304,4 +304,21 @@
     align-self: end;
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(255,255,255, 0));
     z-index: -1;
+}
+
+#main_S > #mainview_S > #vsYB_S > a:link{	
+    text-decoration: none;
+    color: #f9d142;
+}
+#main_S > #mainview_S > #vsYB_S > a:visited{
+	text-decoration: none;
+    color: #f9d142;
+}
+#main_S > #mainview_S > #vsYB_S > a:hover{
+	text-decoration: none;
+    color: #f9d142;
+}
+#main_S > #mainview_S > #vsYB_S > a:active{
+	text-decoration: none;
+    color: #f9d142;
 }

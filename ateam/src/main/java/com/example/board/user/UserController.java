@@ -13,46 +13,58 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
-
-    @GetMapping("/signup")
-    public String signup(UserCreateForm userCreateForm) {
-        return "signup_form";
-    }
-
-    @PostMapping("/signup")
-    public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "signup_form";
-        }
-
-        if (!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
-            bindingResult.rejectValue("password2", "passwordInCorrect", 
-                    "2개의 패스워드가 일치하지 않습니다.");
-            return "signup_form";
-        }
-
-        try {
-            userService.create(userCreateForm.getUsername(), 
-                    userCreateForm.getEmail(), userCreateForm.getPassword1());
-        }catch(DataIntegrityViolationException e) {
-            e.printStackTrace();
-            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
-            return "signup_form";
-        }catch(Exception e) {
-            e.printStackTrace();
-            bindingResult.reject("signupFailed", e.getMessage());
-            return "signup_form";
-        }
-
-        return "redirect:/";
-    }
-    
-    @GetMapping("/login")
-    public String login() {
-        return "login_form";
-    }
+	private final UserService userService;
+	
+	@GetMapping("/signUp")
+	public String signup(UserCreateForm userCreateForm) {
+		return "/pages/signUp";
+	}
+	
+	@PostMapping("/signUp")
+	public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "/pages/signUp";
+		}
+		//패스워드가 일치하지 않을때 처리하는 방법.
+		if(!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
+			//rejectValue 코드를 이용해 오류를 발생시킴.
+			bindingResult.rejectValue("password2", "passwordIncorrect", "2개 패스워드 일치 x");
+			return "/pages/signUp";
+		}
+		
+		try {
+			userService.create(userCreateForm.getUsername(), userCreateForm.getEmail(),
+					userCreateForm.getNickname(),userCreateForm.getPassword1());
+		}
+		catch(DataIntegrityViolationException dive){
+			dive.printStackTrace();
+			bindingResult.reject("회원가입 실패", "이미 등록되어있는 사용자입니다");
+			return "/pages/signUp";
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			bindingResult.reject("회원가입 실패", e.getMessage());
+			return "/pages/signUp";
+			
+		}
+		
+		
+		return "redirect:/";
+		
+	}
+	
+	@GetMapping("/signIn")
+	public String login() {
+		return "/pages/signIn";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -25,30 +25,37 @@
             <div id="viewDiv_S">
                 <span id="signUpText_S">회원가입</span>
                 <div class="loginDiv">
-                    <form action="signInUp.html" method="get"  id="joinForm" onsubmit="return checkForm();">
+                    <form th:action="@{/signUp}" method="post" th:object="${userCreateForm}" id="joinForm">
+                    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                         <div class="wrapInput">
-                            <input type="email" name="" id="email" class="formInputs" placeholder="Email" autocomplete="off">
+                            <input type="username" th:field="*{username}" name="username" id="username" class="formInputs" placeholder="ID" autocomplete="off">
+                            <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>
+                            <span id="usernameSpan" class="formSpans"></span>
+                            <span id="usernameDupSpan" class="formSpans"></span>
+                        </div>
+                        <div class="wrapInput">
+                            <input type="email" th:field="*{email}" name="email" id="email" class="formInputs" placeholder="Email" autocomplete="off">
                             <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>
                             <span id="emailSpan" class="formSpans"></span>
                             <span id="emailDupSpan" class="formSpans"></span>
                         </div>
                         <div class="wrapInput">
-                            <input type="text" name="" id="nickname" class="formInputs" placeholder="Nickname" autocomplete="off">
+                            <input type="text" name="nickname" th:field="*{nickname}" id="nickname" class="formInputs" placeholder="Nickname" autocomplete="off">
                             <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>
                             <span id="nicknameSpan" class="formSpans"></span>
                         </div>
                         <div class="wrapInput">
-                            <input type="password" name="" id="password1" class="formInputs" placeholder="문자,숫자 포함 8자 이상 입력." autocomplete="new-password">
+                            <input type="password" th:field="*{password1}" name="password1" id="password1" class="formInputs" placeholder="문자,숫자 포함 8자 이상 입력." autocomplete="new-password">
                             <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>
                             <span id="password1Span" class="formSpans"></span>
                         </div>
                         <div class="wrapInput">
-                            <input type="password" name="" id="password2" class="formInputs" placeholder="비밀번호 확인" autocomplete="new-password">
+                            <input type="password" th:field="*{password2}" name="password2" id="password2" class="formInputs" placeholder="비밀번호 확인" autocomplete="new-password">
                             <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>
                             <span id="password2Span" class="formSpans"></span>
                         </div>
                         <input type="submit" value="회원가입" id="submit">
-                    </form>      
+                    </form>     
                     
                 </div>
               
@@ -91,8 +98,8 @@
             </div>
         </div>
     </div>
-    <div id="footerFilter_S"></div>
-    <script src="./js/join_C.js"></script>
+        <div id="footerFilter_S"></div>
+    <!-- <script src="./js/join_C.js"></script> -->
     <script src="./js/footer.js"></script>
 </body>
 

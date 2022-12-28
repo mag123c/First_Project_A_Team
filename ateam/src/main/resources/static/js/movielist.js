@@ -135,11 +135,11 @@ for(let i = 0; i < chooseOption.length; i++){
     });
 }
 
-logoutBtn.addEventListener('click', function () {
-    alert('로그아웃 합니다.');
-    localStorage.clear(); //로그아웃 시 로컬스토리지 비우기
-    location.href = 'index.html';
-});
+//logoutBtn.addEventListener('click', function () {
+//    alert('로그아웃 합니다.');
+//    localStorage.clear(); //로그아웃 시 로컬스토리지 비우기
+//    location.href = 'index.html';
+//});
 
 /*장르,년도 선택후 버튼 클릭*/
 btnSelect_C.addEventListener('click', function () {

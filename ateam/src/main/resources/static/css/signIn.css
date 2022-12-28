@@ -192,3 +192,20 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 1) 15% , rgba(0,0,0, 0.1) 50%);
     z-index: -1;
 }
+
+#viewFooter_S > #signUpLink_S > a:link{	
+    text-decoration: none;
+    color: #f9d142;
+}
+#viewFooter_S > #signUpLink_S > a:visited{	
+    text-decoration: none;
+    color: #f9d142;
+}
+#viewFooter_S > #signUpLink_S > a:hover{	
+    text-decoration: none;
+    color: #f9d142;
+}
+#viewFooter_S > #signUpLink_S > a:active{	
+    text-decoration: none;
+    color: #f9d142;
+}

@@ -8,7 +8,22 @@ public class MainController {
 
 	@GetMapping("/")
 	public String main() {
-		return "lay";
+		return "/pages/index";
 	}
+	
+    @GetMapping("/signInUp")
+    public String signInUp() {
+        return "/pages/signInUp";
+    }
+    
+	@GetMapping("/main")
+	public String lay() {
+		return "/pages/lay";
+	}
+    
+//    @GetMapping("/signIn")
+//    public String signIn() {
+//        return "/pages/signIn";
+//    }
 	
 }
