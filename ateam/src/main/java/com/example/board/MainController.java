@@ -21,9 +21,9 @@ public class MainController {
 		return "/pages/lay";
 	}
     
-//    @GetMapping("/signIn")
-//    public String signIn() {
-//        return "/pages/signIn";
-//    }
+	@GetMapping("/help")
+	public String help() {
+		return "/pages/helper";
+	}
 	
 }

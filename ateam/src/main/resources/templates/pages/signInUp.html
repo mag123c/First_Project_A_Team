@@ -62,7 +62,7 @@
                 </div>
                 <!-- helper 페이지 생성 후 링크 연결 예정 -->
                 <!-- helper 페이지에 ID찾기, PW찾기, 회원가입 창 구현 예정입니다 -->
-                <div id="viewHelp_S">도움이 필요하신가요? &nbsp; <span onclick="th:href={@/helper}"> 자주 찾는 질문</span>
+                <div id="viewHelp_S">도움이 필요하신가요? &nbsp; <span th:onclick="|location.href='@{/help}'|"> 자주 찾는 질문</span>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                         <li onclick="location.href='https://www.saramin.co.kr/zf_user/company-info/view/csn/YWJuOFZST1orZExUbFN4Uy8wdHd1Zz09/company_nm/%EB%A7%81%ED%81%AC%EF%BC%88LINK%EF%BC%89'">서비스 소개</li>
                         <li onclick="location.href='https://policies.google.com/terms?hl=ko'">이용약관</li>
                         <li onclick="location.href='https://myaccount.google.com/privacycheckup'">개인정보 처리방침</li>
-                        <li onclick="th:href='@{/helper}'">자주찾는질문</li>
+                        <li th:onclick="|location.href='@{/help}'|">자주찾는질문</li>
                     </ul>
                 </div>
                 <div class="footertwo_K">
