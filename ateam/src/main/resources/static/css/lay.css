@@ -11,6 +11,7 @@ body {
     "header"
     "mainView"
     "footer";
+    
 }
 /* 헤더입니다 로고를 비롯한 카테고리,드라마,회원가입 등의 버튼이 위치할 예정이며 뷰어 기준 세로 10%를 할당하게 해뒀습니다. */
 /* 회의를 통해 세로길이 조정해서 사용하시면 되겠습니다. */
@@ -19,6 +20,7 @@ body {
     width: 100%; /*100vw;*/
     height: 10vh;
     grid-area: header;
+    
 }
 
 /* 22/12/28 장재호 작업 메뉴간격 맞추기 */
@@ -31,10 +33,18 @@ body {
 }
 
 #header_P .third .dropdown_P {
-	width : 20vh;
+	width : 30vh;
+	display : flex;
+	flex-direction : row-reverse;
 }
 
-#header_P .third .dropdown_P .drop-contentul_P .drop-contentli {
+#header_P .third .dropdown_P div{
+	background-color : #F9D142;
+	padding-left: 2.5vh;
+	padding-right: 2.5vh;
+	padding-top: 1.3vh;
+	padding-bottom : 1.3vh;
+	border-radius: 10px;		
 	
 }
 
