@@ -1,0 +1,32 @@
+.mainImg{
+	width : 100%;
+	display : flex;
+	justify-content : space-between;
+	overflow:hidden;
+}
+
+
+.mainImg div{
+	margin : 5vh;	
+	transform: scale(1); 
+	transition: all 0.3s ease-in-out;	
+}
+
+.mainImg div:hover {
+  transform: scale(1.2);
+}
+
+
+
+.mainImg img{
+	width : 350px;
+	height : 550px;
+}
+
+
+
+.text {
+	text-align : center;
+	color : white;
+	margin-top : 2vh;
+}

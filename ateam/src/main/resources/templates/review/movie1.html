@@ -1,0 +1,34 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+<link th:href="@{/css/movie1.css}" rel="stylesheet" />
+<body>
+
+<div class="movie1">
+	<div class="movieImg">
+		<div class="first">
+			<img th:src="@{/img/세븐.jpg}">
+		</div>
+	</div>
+	
+	
+	<div class="review"> <!-- 리뷰 적을곳 -->
+		<div class="view"></div>
+		
+			<div class="commentcreate">
+				<div class="col-6">
+					<textarea type="text" placeholder="리뷰를 입력하세요" id="" class="form-control" style="height:200px;" autofocus></textarea>
+				</div>
+				<div class="createbutton">
+					<a th:href="@{/review/create}" class="btn btn-primary">등록하기</a>
+				</div>	
+			</div>
+				
+			
+
+	</div>	
+	</div>
+	
+</div>
+</body>	
+</div>
+</html>

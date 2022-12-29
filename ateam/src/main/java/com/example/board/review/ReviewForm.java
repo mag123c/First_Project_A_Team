@@ -9,10 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReviewForm {
-    @NotEmpty(message="Á¦¸ñÀº ÇÊ¼öÇ×¸ñÀÔ´Ï´Ù.")
+    @NotEmpty(message="ì…ë ¥í•˜ì„¸ìš”")
     @Size(max=200)
     private String subject;
 
-    @NotEmpty(message="³»¿ëÀº ÇÊ¼öÇ×¸ñÀÔ´Ï´Ù.")
+    @NotEmpty(message="ì…ë ¥í•˜ì„¸ìš”")
     private String content;
 }
