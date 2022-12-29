@@ -16,6 +16,7 @@
                         </ul>
                     </nav>
                 </div>
+                <!--
                 <div class="second">
                     <div class="searchBox_P">
                         <div class="search_P">
@@ -24,11 +25,15 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="third">
                     <div class="dropdown_P">
+                     <!--                     
                         <ion-icon name="person-circle-outline" class="loginicon_P" onclick="dp_menu()"></ion-icon>
                         <div style="display: none;" id="drop-content_P">
+                        -->
                             <ul class="drop-contentul_P">
+                            <!--
                                 <li class="drop-contentli">
                                     <ion-icon name="settings-outline" class="dropicon_P"></ion-icon> <span class="menus_P" id="profile_C">프로필 관리</span>
                                     <div id="userDiv_C">
@@ -46,22 +51,27 @@
                                         </div>
                                     </div>
                                 </li>
+                              -->
                                 <a th:href="@{/signOut}">
-                                <li class="drop-contentli">
+                                <li class="drop-contentli">로그아웃
+                                <!-- 
                                     <ion-icon name="exit-outline" class="dropicon_P"></ion-icon> <span class="menus_P" id="logoutBtn_C">로그아웃</span>
+                                -->
                                 </li>
                                 </a>
                             </ul>
                         </div>
                     </div>
+                    <!--  
                     <div class="login_P">
                         <span id="loginID_C"></span>
                         <span id="loginText_C">님 환영합니다.</span>
-                        
-                        <!-- <button id="logoutBtn_C">로그아웃</button> -->
+						<button id="logoutBtn_C">로그아웃</button>
                         <button id="manageBtn_C">회원관리</button>
                         <div id="manageDiv_C"></div>
                     </div>
+                    -->
+                    
                 </div>
             </header>
         </div>
