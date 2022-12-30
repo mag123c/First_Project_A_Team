@@ -1,0 +1,47 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+<link th:href="@{/css/movie.css}" rel="stylesheet" />
+<body>
+
+<div class="movie">
+	<div class="movieImg">
+		<div class="first">
+			<img th:src="@{/img/action1.jpg}">
+		</div>
+	</div>
+	
+	
+	<div class="review"> <!-- 리뷰 적을곳 -->
+		<div class="view">
+			<div th:each="mrc1 : ${mrc1List}">
+				<td th:text="${mrc2.content}"></td>
+				<td th:text="${mrc2.author.username}"></td>				
+				<td th:text="${mrc2.createDate}"></td>
+			</div>
+		</div>
+		
+		    <form th:action="@{/review/movie2}" th:object="${MrcForm}" method="post">
+		    	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+				<!-- <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+            	 <div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div></div>-->
+       			
+       			
+       			
+				<div class="commentcreate">
+					<div class="col-6">
+						<textarea type="text" placeholder="리뷰를 입력하세요" name="content" 
+						          id="content" class="form-control" autofocus></textarea>
+					</div>
+      					<input type="submit" value="등록하기" class="btn btn-primary my-2">
+				</div>
+			</form>
+				
+			
+
+	</div>	
+	</div>
+	
+</div>
+</body>	
+</div>
+</html>

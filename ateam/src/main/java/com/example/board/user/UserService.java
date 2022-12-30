@@ -34,7 +34,7 @@ public class UserService {
         if (siteUser.isPresent()) {
             return siteUser.get();
         } else {
-            throw new DataNotFoundException("데이터낫파운드");
+            throw new DataNotFoundException("redirect:/signIn으로 가게하고싶은데 어케함?");
         }        
 	}
 	

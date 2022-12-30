@@ -11,7 +11,7 @@ import lombok.Setter;
 public class MrcForm {
 
 	@NotEmpty(message="입력하세요")
-	@Size(max=100)
+	@Size(max=300)
 	private String content;
 
 }

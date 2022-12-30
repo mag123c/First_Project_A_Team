@@ -1,9 +1,9 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
-<link th:href="@{/css/movie1.css}" rel="stylesheet" />
+<link th:href="@{/css/movie.css}" rel="stylesheet" />
 <body>
 
-<div class="movie1">
+<div class="movie">
 	<div class="movieImg">
 		<div class="first">
 			<img th:src="@{/img/세븐.jpg}">
@@ -13,10 +13,24 @@
 	
 	<div class="review"> <!-- 리뷰 적을곳 -->
 		<div class="view">
-			<div th:each="mrc1 : ${mrc1List}">
+			<div class="commentview" th:each="mrc1 : ${mrc1List}">
 				<td th:text="${mrc1.content}"></td>
+				<br>
 				<td th:text="${mrc1.author.username}"></td>				
-				<td th:text="${mrc1.createDate}"></td>
+				<td th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+				
+				<div>
+            		<a th:href="@{|/review/modify/${mrc1.id}|}" class="btn btn-sm btn-outline-secondary"
+	                sec:authorize="isAuthenticated()"
+	                th:if="${mrc1.author != null and #authentication.getPrincipal().getUsername() == mrc1.author.username}"
+	                th:text="수정"></a>
+	                
+	                <a href="javascript:void(0);" th:data-uri="@{|/mrc1/delete/${mrc1.id}|}"
+	                class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+	                th:if="${mrc1.author != null and #authentication.getPrincipal().getUsername() == mrc1.author.username}"
+	                th:text="삭제"></a>
+       			</div>       			
+
 			</div>
 		</div>
 		
@@ -42,6 +56,16 @@
 	</div>
 	
 </div>
-</body>	
+</body>
 </div>
+<script type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
 </html>

@@ -1,7 +1,6 @@
 package com.example.board.review.mrc;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Mrc1 {
+public class Mrc2 {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +27,8 @@ public class Mrc1 {
 	private String content;
 	
 	private LocalDateTime createDate;
-//	private String createDate;
 	
 	@ManyToOne
 	private SiteUser author;
-	
-	private LocalDateTime modifyDate;
 	
 }

@@ -22,15 +22,15 @@ public class CommentController {
     private final ReviewService reviewService;
     private final CommentService commentService;
 
-    @PostMapping("/create/{id}")
-    public String createComment(Model model, @PathVariable("id") Integer id, 
-            @Valid CommentForm commentForm, BindingResult bindingResult) {
-        Review review = this.reviewService.getReview(id);
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("review", review);
-            return "review_detail";
-        }
-        this.commentService.create(review, commentForm.getContent());
-        return String.format("redirect:/review/detail/%s", id);
-    }
+//    @PostMapping("/create/{id}")
+//    public String createComment(Model model, @PathVariable("id") Integer id, 
+//            @Valid CommentForm commentForm, BindingResult bindingResult) {
+//        Review review = this.reviewService.getReview(id);
+//        if (bindingResult.hasErrors()) {
+//            model.addAttribute("review", review);
+//            return "review_detail";
+//        }
+//        this.commentService.create(review, commentForm.getContent());
+//        return String.format("redirect:/review/detail/%s", id);
+//    }
 }
