@@ -9,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.example.board.review.comment.Comment;
+import com.example.board.user.SiteUser;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,19 +27,15 @@ public class ReleaseMovie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 200)
+    @Column(length = 500)
     private String subject;
 
-    @Column(columnDefinition = "TEXT")
-    private String content;
-    
-    @Column(columnDefinition = "TEXT")
-    private String name;
-
-    @Column(columnDefinition = "TEXT")
-    private String date;
-
     private LocalDateTime createDate;
+    
+    @ManyToOne
+	private SiteUser author;
+
+    private LocalDateTime modifyDate;
 
 	
 }

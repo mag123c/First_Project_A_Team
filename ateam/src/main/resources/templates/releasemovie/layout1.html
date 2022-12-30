@@ -8,6 +8,7 @@
     <title>개봉 예정 영화</title>
   	<link rel="icon" th:href="@{/img/favicon.png}">
     <link rel="stylesheet" th:href="@{/css/lay.css}">
+    <link rel="stylesheet" th:href="@{/css/movieform.css}">
     <link rel="stylesheet" th:href="@{/css/movielist.css}">
     <link rel="stylesheet" th:href="@{/css/drama.css}">
     <link rel="stylesheet" th:href="@{/css/global.css}">
@@ -23,6 +24,7 @@
 <body>
 <nav th:replace="~{navbar :: navbarFragment}"></nav>
 <th:block layout:fragment="content"></th:block>
+
 <script th:src="@{/bootstrap.min.js}"></script>
  <script th:src="@{/js/movielist.js}"></script>
  <script th:src="@{/js/drama.js}"></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout1}">
+<div layout:fragment="content" class="container">
+    <h5 class="my-3 border-bottom pb-2">댓글 수정</h5>
+    <form  th:object="${releaseMovieForm}" method="post">
+    	<!-- 사용자에게 보여주지 않고 ui를 불러오는 것 -->
+    	<input type="hidden" th:name="${_csrf.parameterName}" th:value=${_csrf.token}>
+    	<!-- _csrf 공격 : 다른 사이트에서 우리사이트를 공격 -> _csrf 토큰 : _csrf 공격을 방어하는 약간 보안키 느낌 -->
+    	<div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+    	
+    		<div th:each="err: ${#fields.allErrors()}" th:text="${err}"></div>
+    		
+    	</div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">제목</label>
+             <textarea th:field= "*{subject}" id="content" class="form-control" rows="10"></textarea>
+        </div>
+        <input type="submit" value="저장하기" class="btn btn-primary my-2">
+    </form>
+</div>
+</html>
