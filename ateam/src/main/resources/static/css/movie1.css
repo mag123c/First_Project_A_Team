@@ -10,13 +10,12 @@
 
 .movie1 .review {
 	margin-left : 15vh;
-	border : solid white 3px;
 	height : 700px;
 	width : 100%;
+	background-color : white;
 }
 
 .movie1 .review .view {	
-	border : solid white 3px;
 	width : 100%;
 	height : 500px;
 	overflow : auto; /* scroll */
@@ -26,7 +25,8 @@
 .movie1 .review .commentcreate{	
 	display : flex;
 	justify-content : space-bewteen;
-	word-wrap : break-word;	
+	word-wrap : break-word;
+	height : 200px;
 }
 
 .movie1 .review .col-6{
@@ -34,7 +34,12 @@
 	overflow : auto;
 }
 
-.movie1 .review .createbutton{
+.movie1 .review .col-6 textarea{
+	height : 200px;
+}
+
+.movie1 .review input{
 	position : relative;
-	top : 163px;
+	bottom : 8px;
+	height : 200px;
 }

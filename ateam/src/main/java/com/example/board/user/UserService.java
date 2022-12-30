@@ -34,7 +34,7 @@ public class UserService {
         if (siteUser.isPresent()) {
             return siteUser.get();
         } else {
-            throw new DataNotFoundException("¾øÀ½");
+            throw new DataNotFoundException("ë°ì´í„°ë‚«íŒŒìš´ë“œ");
         }        
 	}
 	

@@ -30,11 +30,6 @@ public class ReviewController {
         return "/review/review_list";
     }
 	
-	@GetMapping("/movie1")
-	public String movie1() {
-		return "/review/movie1";
-	}
-	
     
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, CommentForm commentForm) {

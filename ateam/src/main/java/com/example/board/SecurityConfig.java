@@ -20,7 +20,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		// 인증되지 않은 요청을 허락할 때 사용하는 메서드
+		
 		http.authorizeHttpRequests().requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
 		.and()
 			.csrf()

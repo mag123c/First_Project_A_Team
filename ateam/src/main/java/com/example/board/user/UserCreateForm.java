@@ -12,20 +12,20 @@ import lombok.Setter;
 public class UserCreateForm {
 
 	@Size(min = 3, max =20)
-	@NotEmpty(message="ID´Â 3~20±ÛÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message="ID : 3~20ì")
 	private String username;
 	
-	@NotEmpty(message="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message="ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”")
 	@Email
 	private String email;
 	
-	@NotEmpty(message="´Ğ³×ÀÓÀ» ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message="ë‹‰ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”")
 	private String nickname;
 	
-	@NotEmpty(message="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä")
+	@NotEmpty(message="íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”")
 	private String password1;
 	
-	@NotEmpty(message="ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä")
+	@NotEmpty(message="íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”")
 	private String password2;
 
 	
