@@ -1,0 +1,23 @@
+
+#page-color{
+	background-color: gray;
+	border-color: gray;
+}
+
+#page-color:hover{
+	background-color: silver;
+}
+
+
+.btn btn-sm btn-outline-secondary{
+	background-color: gray;
+}
+
+.container h5{
+	color : white;
+}
+
+.container .mb-3 .form-label{
+	color : white;
+	
+}

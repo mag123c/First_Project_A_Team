@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.board.DataNotFoundException;
+import com.example.board.user.SiteUser;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,14 +38,12 @@ public class ReleaseMovieService {
         }
     }
     
-    public void create(String subject, String content, String name, String date) {
+    public void create(String subject, SiteUser user) {
     	try {
     		ReleaseMovie q = new ReleaseMovie();
             q.setSubject(subject);
-            q.setContent(content);
-            q.setName(name);
-            q.setDate(date);
             q.setCreateDate(LocalDateTime.now());
+            q.setAuthor(user);
             this.releasemMovieRepository.save(q);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,4 +51,16 @@ public class ReleaseMovieService {
     	
         
     }
+
+	public void modify(ReleaseMovie releaseMovie, String subject) {
+		releaseMovie.setSubject(subject);
+		releaseMovie.setModifyDate(LocalDateTime.now());
+		this.releasemMovieRepository.save(releaseMovie); //수정한 내용을 다시 Question에 저장
+		
+	}
+
+	public void delete(ReleaseMovie releaseMovie) {
+		this.releasemMovieRepository.delete(releaseMovie);
+		
+	}
 }

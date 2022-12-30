@@ -72,6 +72,29 @@ body {
     margin: auto;
 }
 
+/*1229 김범수 수정*/
+#test { /* 게시판 배경 위치 조정*/
+	width: 140vh;
+    margin: auto;
+    padding-top: 2vh;
+    
+}
+
+#button-color{/* 버튼 색 조정*/
+	background-color: gray;
+	border-color: gray;
+}
+
+#button-color:hover{/* 버튼 색 조정*/
+	background-color: silver;
+}
+
+.content-table{/* 게시판 색깔 조정*/
+	background-color: gray;
+}
+/*1229수정*/
+
+
 #section1_S {
     width: 70%;
     min-width: 1024px;/*07-24 최원석 수정*/
