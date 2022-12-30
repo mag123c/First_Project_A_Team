@@ -1,6 +1,6 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
-<body>        
+      
 	<div class="row my-3">
 		<div class="col-6">
 			<a th:href="@{/question/create}" class="btn btn-primary">질문등록</a>
@@ -20,17 +20,18 @@
             <tr class="text-center">
                 <th>번호</th>
                 <th style="width:50%">제목</th>
-                <th>작성일자</th>
                 <th>작성자</th>
+                <th>작성일자</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="question, loop : ${paging}">
+            <tr th:each="question, loop : ${paging}" class="text-center">
                	<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
-                <td>
+                <td class="text-center">
                     <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+                    
                 </td>
-                <!-- <td><span th:if="${question.author !=null}" th:text="${question.author.username}"></span></td>  -->               
+                 <td><span th:if="${question.author !=null}" th:text="${question.author.username}"></span></td>               
                 <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
             </tr>
         </tbody>
@@ -80,5 +81,5 @@
 	});
 	</script>    
 </div>
-</body>
+
 </html>

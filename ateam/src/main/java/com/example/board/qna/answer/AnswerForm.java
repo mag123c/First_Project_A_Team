@@ -9,6 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AnswerForm {
-    @NotEmpty(message = "³»¿ëÀº ÇÊ¼öÇ×¸ñÀÔ´Ï´Ù.")
+    @NotEmpty(message = "ë‚´ìš©ì€ í•„ìˆ˜ì…ë‹ˆë‹¤")
     private String content;
 }

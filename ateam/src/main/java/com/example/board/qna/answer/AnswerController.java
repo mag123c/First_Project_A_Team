@@ -1,5 +1,7 @@
 package com.example.board.qna.answer;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -8,9 +10,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.board.DataNotFoundException;
 import com.example.board.qna.Question;
 import com.example.board.qna.QuestionService;
+import com.example.board.user.SiteUser;
+import com.example.board.user.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,6 +27,7 @@ public class AnswerController {
 
     private final QuestionService questionService;
     private final AnswerService answerService;
+    
 
     @PostMapping("/create/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id, 
@@ -33,4 +40,7 @@ public class AnswerController {
         this.answerService.create(question, answerForm.getContent());
         return String.format("redirect:/question/detail/%s", id);
     }
+  
+ 
+	
 }

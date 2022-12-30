@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.example.board.qna.Question;
+import com.example.board.user.SiteUser;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +29,9 @@ public class Answer {
 
     private LocalDateTime createDate;
 
-    @ManyToOne
+    @OneToOne
     private Question question;
+    @OneToOne
+	private SiteUser author;
+	private LocalDateTime modifyDate;
 }
