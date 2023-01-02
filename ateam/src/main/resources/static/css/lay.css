@@ -83,6 +83,7 @@ body {
 #button-color{/* 버튼 색 조정*/
 	background-color: gray;
 	border-color: gray;
+	margin-bottom: 1vh;
 }
 
 #button-color:hover{/* 버튼 색 조정*/

@@ -45,7 +45,7 @@ import lombok.RequiredArgsConstructor;
 	    public String detail(Model model, @PathVariable("id") Integer id) {
 	    	ReleaseMovie releaseMovie = this.releaseMovieService.getReleasemMovie(id);
 	        model.addAttribute("releaseMovie", releaseMovie);
-	        return "releasemovie/releasemovie_detail";
+	        return "redirect:/releasemovie/list";
 	    }
 	    
 	    @PreAuthorize("isAuthenticated()")
@@ -75,6 +75,7 @@ import lombok.RequiredArgsConstructor;
 	    }
 	    
 	    //댓글 수정
+	    @PreAuthorize("isAuthenticated()")
 	    @GetMapping("/modify/{id}")
 		public String modify(ReleaseMovieForm releaseMovieForm, 
 				@PathVariable("id") Integer id, Principal principal) {
@@ -86,7 +87,8 @@ import lombok.RequiredArgsConstructor;
 				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다");
 			}
 			releaseMovieForm.setSubject(releaseMovie.getSubject());
-			return "releasemovie_modify";
+			
+			return "releasemovie/releasemovie_modify";
 	    }
 	    
 	    @PreAuthorize("isAuthenticated()")
@@ -103,7 +105,7 @@ import lombok.RequiredArgsConstructor;
 			}
 			this.releaseMovieService.modify(releaseMovie, releaseMovieForm.getSubject());
 			
-			return String.format("redirect:/releasemovie/list/%s", id); //id값이 어디로 넘어가야 하는가
+			return String.format("redirect:/releasemovie/detail/%s", id); //id값이 어디로 넘어가야 하는가
 	    }
 	    
 		//삭제

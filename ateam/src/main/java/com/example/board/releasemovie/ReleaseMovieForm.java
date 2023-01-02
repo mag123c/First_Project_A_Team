@@ -1,5 +1,7 @@
 package com.example.board.releasemovie;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -12,6 +14,7 @@ public class ReleaseMovieForm {
     @NotEmpty(message="내용은 필수입니다")
     @Size(max=200)
     private String subject;
+    
     
 }
 
