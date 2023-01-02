@@ -8,9 +8,24 @@
 	background-color: silver;
 }
 
+#table-button-modify{
+	background-color: white; 
+}
 
-.btn btn-sm btn-outline-secondary{
-	background-color: gray;
+#table-button-modify:hover{
+	background-color: silver; 
+}
+
+#table-button-delete{
+	background-color: white;
+}
+
+#table-button-delete:hover{
+	background-color: silver;
+}
+
+#modify-time{
+	font-size: small;
 }
 
 .container h5{
@@ -19,5 +34,13 @@
 
 .container .mb-3 .form-label{
 	color : white;
-	
 }
+
+.movie-font-size{
+	font-size: 50px;
+}
+
+.cell{
+	vertical-align: middle;
+}
+
