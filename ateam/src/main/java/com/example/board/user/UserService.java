@@ -22,7 +22,6 @@ public class UserService {
 		user.setUsername(username);
 		user.setEmail(email);
 		user.setNickname(nickname);
-		//BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		user.setPassword(passwordEncoder.encode(password));
 		this.userRepository.save(user);
 		return user;

@@ -26,7 +26,7 @@
                 <span id="signUpText_S">회원가입</span>
                 <div class="loginDiv">
                     <form th:action="@{/signUp}" method="post" th:object="${userCreateForm}" id="joinForm">
-                    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+                    <div class="formerrors" th:replace="~{form_errors :: formErrorsFragment}"></div>
                         <div class="wrapInput">
                             <input type="username" th:field="*{username}" name="username" id="username" class="formInputs" placeholder="ID" autocomplete="off">
                             <ion-icon name="checkmark-outline" class="checkIcon"></ion-icon>

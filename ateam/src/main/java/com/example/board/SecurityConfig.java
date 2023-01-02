@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,7 +22,10 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
+		// 로그인을 하지 않더라도 모든 접근 허용.
 		http.authorizeHttpRequests().requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+//		철우님 관리자권한 아이디로만 접근 가능하게끔.
+//		.antMatchers("/question/**").hasRole("ADMIN")
 		.and()
 			.csrf()
 			.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))
@@ -37,6 +41,8 @@ public class SecurityConfig {
 			.logoutRequestMatcher(new AntPathRequestMatcher("/signOut"))
 			.logoutSuccessUrl("/")
 			.invalidateHttpSession(true);
+		
+
 		
 		return http.build();
 	}

@@ -27,10 +27,8 @@ public class UserController {
 		if(bindingResult.hasErrors()) {
 			return "/pages/signUp";
 		}
-		//ÆĞ½º¿öµå°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀ»¶§ Ã³¸®ÇÏ´Â ¹æ¹ı.
 		if(!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
-			//rejectValue ÄÚµå¸¦ ÀÌ¿ëÇØ ¿À·ù¸¦ ¹ß»ı½ÃÅ´.
-			bindingResult.rejectValue("password2", "passwordIncorrect", "2°³ ÆĞ½º¿öµå ÀÏÄ¡ x");
+			bindingResult.rejectValue("password2", "passwordIncorrect", "2ê°œì˜ íŒ¨ìŠ¤ì›Œë“œê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			return "/pages/signUp";
 		}
 		
@@ -40,12 +38,12 @@ public class UserController {
 		}
 		catch(DataIntegrityViolationException dive){
 			dive.printStackTrace();
-			bindingResult.reject("È¸¿ø°¡ÀÔ ½ÇÆĞ", "ÀÌ¹Ì µî·ÏµÇ¾îÀÖ´Â »ç¿ëÀÚÀÔ´Ï´Ù");
+			bindingResult.reject("signupFailed", "ì´ë¯¸ ë“±ë¡ëœ ì‚¬ìš©ìì…ë‹ˆë‹¤.");
 			return "/pages/signUp";
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			bindingResult.reject("È¸¿ø°¡ÀÔ ½ÇÆĞ", e.getMessage());
+			bindingResult.reject("signupFailed", e.getMessage());
 			return "/pages/signUp";
 			
 		}

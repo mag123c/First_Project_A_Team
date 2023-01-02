@@ -20,15 +20,8 @@ public class MrcService {
 	
 	public List<Mrc1> getList(){
 		return this.mrcRepository.findAll();
-	}
-	
-//	public List<Mrc2> getList2(){
-//		return this.mrcRepository.findAll();
-//	}
-//	
-//	public List<Mrc3> getList3(){
-//		return this.mrcRepository.findAll();
-//	}
+	}	
+
 	
 	public void create(String content, SiteUser user) {
         Mrc1 m1 = new Mrc1();
@@ -36,14 +29,7 @@ public class MrcService {
         m1.setCreateDate(LocalDateTime.now());
         m1.setAuthor(user);
         this.mrcRepository.save(m1);
-    }
-	
-//    public void modify(Mrc1 mrc1, String content) {
-//        mrc1.setContent(content);
-//        mrc1.setModifyDate(LocalDateTime.now());
-//        this.mrcRepository.save(mrc1);
-//    }
-    
+    }   
     
 	public Mrc1 getMrc1(Integer id) {
 		Optional<Mrc1> mrc1 = this.mrcRepository.findById(id);
@@ -64,34 +50,7 @@ public class MrcService {
         this.mrcRepository.delete(mrc1);
     }
 	
-	
-	
-	
-	
-	
-	
 
-	
-	
-//	public void create2(String content, SiteUser user) {
-//        Mrc2 m2 = new Mrc2();
-//        m2.setContent(content);
-//        m2.setCreateDate(LocalDateTime.now());
-//        m2.setAuthor(user);
-//        this.mrcRepository.save(m2);
-//    }
-//	
-//	
-//	
-//	
-//	public void create3(String content, SiteUser user) {
-//        Mrc3 m3 = new Mrc3();
-//        m3.setContent(content);
-//        m3.setCreateDate(LocalDateTime.now());
-//        m3.setAuthor(user);
-//        this.mrcRepository.save(m3);
-//    }
-	
 	
 	
 	

@@ -1,4 +1,7 @@
 <html layout:decorate="~{layout}">
+<head>
+<link th:href="@{/css/reviewform.css}" rel="stylesheet" />
+</head>
 <div layout:fragment="content" class="container">
     <h5 class="my-3 border-bottom pb-2">댓글 수정</h5>
     <form th:object="${mrcForm}" method="post">
@@ -11,4 +14,15 @@
         <input type="submit" value="저장하기" class="btn btn-primary my-2">
     </form>
 </div>
+
+<script layout:fragment="script" type='text/javascript'>
+const delete_elements = document.getElementsByClassName("btn");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("수정되었습니다")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
 </html>

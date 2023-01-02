@@ -24,11 +24,10 @@ public class UserSecurityService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<SiteUser> _siteUser = this.userRepository.findByUsername(username);
 		if (!_siteUser.isPresent()) {
-            throw new UsernameNotFoundException("»ç¿ëÀÚ¸¦ Ã£À»¼ö ¾ø½À´Ï´Ù.");
+            throw new UsernameNotFoundException("ì‚¬ìš©ìë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
         }
 		
         SiteUser siteUser = _siteUser.get();
-        // GrantedAuthority ±ÇÇÑ °ü·Ã ÀÎÅÍÆäÀÌ½º
         List<GrantedAuthority> auth = new ArrayList<>();        
         if ("admin".equals(username)) {
         	auth.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));

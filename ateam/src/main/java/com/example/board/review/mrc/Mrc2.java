@@ -31,4 +31,6 @@ public class Mrc2 {
 	@ManyToOne
 	private SiteUser author;
 	
+	private LocalDateTime modifyDate;
+	
 }
