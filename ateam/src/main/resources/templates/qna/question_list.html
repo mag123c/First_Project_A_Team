@@ -37,7 +37,7 @@
                  <td><span th:if="${question.author !=null}" th:text="${question.author.username}"></span></td> 
  
                   <td>
-                  <span th:if="${question.answerList.size() > 0}" th:text="답변완료"></span>
+                   <span th:if="${question.answerList.size() > 0}" th:text="답변완료"></span>
                    <span th:if="${question.answerList.size() == 0}" th:text="답변대기"></span>
                   </td>
                       
