@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Controller;
+
 import com.example.board.qna.answer.Answer;
 import com.example.board.user.SiteUser;
 
@@ -47,5 +49,8 @@ public class Question {
 	
 	@ManyToMany
 	Set<SiteUser> voter;
+	  
+
+
 	
 }
