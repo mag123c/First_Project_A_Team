@@ -1,70 +1,60 @@
 <html layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/css/recommandcss.css}" rel="stylesheet" />
+</head>
+<body>
 
-<div layout:fragment="content" class="container my-3">
-
-	<div class="row my-3">
-		<div class="col-6">
-			   <a th:href="@{/recommand/create}" class="btn btn-primary">질문 추가하기</a>
-		</div>
-		<div class="col-6">
-			<div class="input-group">
-				<input type="text" id= "search_kw" class="form-control" th:value="${kw}">
-				<button class="btn btn-outline-secondary" type="button" id="btn_search"> 검색하기
-				</button>
-			</div>
+	<div id = "recommandmain" layout:fragment="content" class="container_S">
+	<a th:href="@{/recommandMain/list/create}" class="btn btn-primary" id = "submit">질문 등록하기</a>
+		<div class="recommandmain_2">
+		<div class = "recommandmain_3">
+		<table class="table">
+		    <thead class="table-dark">
+		        <tr class="text-center">
+		            <th>게시물내용</th>
+		            <th></th>
+		            <th>작성자</th>
+		            <th>작성/수정일자</th>
+		            
+		        </tr>
+		    </thead>
+		    <tbody> 
+		        <tr th:each="recommand : ${recommandList}">
+		            <td th:text="${recommand.content}"></td>
+		             <td class="my-3">
+		            		<a th:href="@{|/recommandMain/modify/${recommand.id}|}" class="btn btn-sm btn-outline-secondary"
+		                	sec:authorize="isAuthenticated()"
+		               		 th:if="${recommand.author != null and #authentication.getPrincipal().getUsername() == recommand.author.username}"
+		               	 	th:text="수정"></a>
+		               	 	<a href="javascript:void(0);" th:data-uri="@{|/recommandMain/delete/${recommand.id}|}"
+                				class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+              				  th:if="${recommand.author != null and #authentication.getPrincipal().getUsername() == recommand.author.username}"
+              				  th:text="삭제"></a>
+		        	</td>
+		        	<td class="centerc"><span th:if="${recommand.author !=null}" th:text="${recommand.author.username}"></span></td>
+		        	<td class="centerc">
+		        	<p  th:text="${#temporals.format(recommand.createDate, 'yyyy-MM-dd HH:mm')}"></p>
+		        	<p  th:text="${#temporals.format(recommand.modifyDate, 'yyyy-MM-dd HH:mm')}"></p>
+		        	</td>	        	 
+		       
+		        </tr>
+		    </tbody>
+		    
+		</table>
+		  </div>
 		</div>
 	</div>
+	
+</body>
 
-    <table class="table">
-        <thead class="table-dark">
-            <tr class = "text-center">
-                <th>번호</th>
-                <th style ="width:50%">내용</th>
-                <th>작성자</th>
-                <th>작성일자</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="recommand, loop : ${paging}">
-                <td th:text="${loop.count}"></td>
-              	<td>
-                   
-                </td>
-                <td><span th:if = "${recommand.content != null}" th:text="${recommand.content}"></span></td>
-                <td th:text="${#temporals.format(recommand.createDate, 'yyyy-MM-dd HH:mm')}"></td>
-            </tr>
-        </tbody>
-    </table>
-   <!-- 페이징처리 시작 -->
-  <div th:if="${!paging.isEmpty()}">
-    	<ul class="pagination justify-content-center">
-    		<li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-    			<a class="page-link" href="javascript:void(0);" th:data-page="${paging.number-1}">
-    				<span>이전</span>
-    			</a>
-    		</li>
-    		<li th:each="page : ${#numbers.sequence(0, paging.totalPages-1)}"
-    			th:if="${page>=paging.number-2 and page <=paging.number+2}"
-    			th:classappend="${page == paging.number} ? 'active'"
-    			class="page-item">
-    			<a th:text="${page}" class="page-link" href="javascript:void(0);" th:data-page="{page}"></a>
-    		</li>
-    		<li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-    			<a class="page-link" href="javascript:void(0);" th:data-page="{paging.number+1}">
-    				<span>다음</span>
-    			</a>
-    		</li>
-    	</ul>
-    </div>
-     <!--
-    <form th:action="@{/recommand/list}" method="get" id="searchForm">
-    	<input type = "hidden" id = "kw" name="kw" th:value="${kw}">
-    	<input type = "hidden" id = "page" name="page" th:value="${paging.number}">
-    
-    </form>
-    
-    
-    <!-- 페이징처리 끝 -->
-
-</div>
+<script layout:fragment="script" type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
 </html>

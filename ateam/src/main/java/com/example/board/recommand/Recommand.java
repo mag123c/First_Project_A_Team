@@ -28,7 +28,8 @@ public class Recommand {
 	
 	private LocalDateTime createDate; 
 	
-	//private List<Recommand> recommandList;
+	
+	 private LocalDateTime modifyDate; // 수정
 	
 	@ManyToOne
 	private SiteUser author; 

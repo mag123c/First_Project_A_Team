@@ -1,0 +1,27 @@
+
+
+.recommandmain_2{
+	display : flex;
+	justify-content : center;
+	align-items : center;
+}
+
+.recommandmain_3{
+	width:80%;
+}
+
+#submit{
+	margin-left : 82%;
+	margin-bottom : 3vh;
+}
+
+.centerc{
+	text-align : center;
+}
+
+.card-body{
+	height:150px;
+	overflow : auto;
+}
+
+
