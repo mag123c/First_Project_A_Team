@@ -1,11 +1,36 @@
-
-#page-color{
-	background-color: gray;
-	border-color: gray;
+/*1229 김범수 수정*/
+#test { /* 게시판 배경 위치 조정*/
+	width: 140vh;
+    margin: auto;
+    padding-top: 2vh;
+    
 }
+
+#button{/* 버튼 색 조정*/
+	margin-bottom: 1vh;
+	color:black;
+}
+
+#button-color:hover{/* 버튼 색 조정*/
+	background-color: yellow;
+	border-color: yellow;
+}
+/*1229수정*/
+
+#text-content{
+	text-align: left;
+	margin-left: 10vh;
+	overflow: auto;
+	white-space: pre-line;
+	font-family: 'GmarketSans';
+	font-weight: 500;
+	font-size: 15px;
+}
+
 
 #page-color:hover{
 	background-color: silver;
+	border-color: silver;
 }
 
 #table-button-modify{
@@ -43,4 +68,9 @@
 .cell{
 	vertical-align: middle;
 }
+
+.content-table{/* 게시판 색깔 조정*/
+	background-color: gray;
+}
+
 
