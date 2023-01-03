@@ -29,9 +29,9 @@ public class Answer {
 
     private LocalDateTime createDate;
 
-    @OneToOne
+    @ManyToOne
     private Question question;
-    @OneToOne
+    @ManyToOne
 	private SiteUser author;
 	private LocalDateTime modifyDate;
 }

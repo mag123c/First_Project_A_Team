@@ -9,10 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QuestionForm {
-    @NotEmpty(message="Á¦¸ñÀº ÇÊ¼öÇ×¸ñÀÔ´Ï´Ù.")
+    @NotEmpty(message="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.")
     @Size(max=200)
     private String subject;
 
-    @NotEmpty(message="³»¿ëÀº ÇÊ¼öÇ×¸ñÀÔ´Ï´Ù.")
+    @NotEmpty(message="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.")
     private String content;
 }
