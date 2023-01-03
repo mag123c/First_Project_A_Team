@@ -213,32 +213,32 @@ async function checkDupEmail(){
    
 }
 
-// emailBtn.addEventListener('click', function () {
-//     console.clear();
-//     if (isEmailCheck == false) {
-//         alert('이메일을 입력하셔야 합니다.');
-//         console.log('이메일을 입력하셔야 합니다.');
-//         return;
-//     }
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('get', './json/member.json')
-//     xhr.send();
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState == 4 && xhr.status == 200) {
-//             let jsonObj = JSON.parse(xhr.response);
-//             for (let i = 0; i < jsonObj.length; i++) {
-//                 if (jsonObj[i].email == email.value) {
-//                     alert('중복된 아이디 입니다.');
-//                     isEmailDupCheck = false;
-//                     return;
-//                 }
-//             }
-//             alert('사용가능한 아이디 입니다.') //여기까지 왔다는 것은 중복된 아이디가 없다는 뜻
-//             isEmailDupCheck = true;
-//             emailBtn.innerHTML = 'Email 사용 가능';
-//             emailBtn.style.pointerEvents = 'none';
-//             email.style.color = 'orangered';
-//             email.disabled = true;
-//         }
-//     }
-// });
+ emailBtn.addEventListener('click', function () {
+     console.clear();
+     if (isEmailCheck == false) {
+         alert('이메일을 입력하셔야 합니다.');
+         console.log('이메일을 입력하셔야 합니다.');
+         return;
+     }
+     let xhr = new XMLHttpRequest();
+     xhr.open('get', './json/member.json')
+     xhr.send();
+     xhr.onreadystatechange = function () {
+         if (xhr.readyState == 4 && xhr.status == 200) {
+             let jsonObj = JSON.parse(xhr.response);
+             for (let i = 0; i < jsonObj.length; i++) {
+                 if (jsonObj[i].email == email.value) {
+                     alert('중복된 아이디 입니다.');
+                     isEmailDupCheck = false;
+                     return;
+                 }
+             }
+             alert('사용가능한 아이디 입니다.') //여기까지 왔다는 것은 중복된 아이디가 없다는 뜻
+             isEmailDupCheck = true;
+             emailBtn.innerHTML = 'Email 사용 가능';
+             emailBtn.style.pointerEvents = 'none';
+             email.style.color = 'orangered';
+             email.disabled = true;
+         }
+     }
+ });

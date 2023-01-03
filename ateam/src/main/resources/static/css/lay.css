@@ -1,3 +1,4 @@
+
 body {
     background-color: #292826;
 }
@@ -46,6 +47,10 @@ body {
 	padding-bottom : 1.3vh;
 	border-radius: 10px;		
 	
+}
+
+#container_S #header_P .first .logo_P li a{
+	size : 100px;
 }
 
 

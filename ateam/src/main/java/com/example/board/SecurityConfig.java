@@ -26,6 +26,7 @@ public class SecurityConfig {
 		http.authorizeHttpRequests().requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
 //		철우님 관리자권한 아이디로만 접근 가능하게끔.
 //		.antMatchers("/question/**").hasRole("ADMIN")
+		
 		.and()
 			.csrf()
 			.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))

@@ -14,8 +14,7 @@
 	<div class="review"> <!-- 리뷰 적을곳 -->
 		<div class="view">
 			<div class="commentview" th:each="mrc1 : ${mrc1List}">
-				<td th:text="${mrc1.content}"></td>
-				<br>
+				<td><pre class="pretext" th:text="${mrc1.content}"></pre></td>
 				작성자 : <td th:text="${mrc1.author.username}"></td>				
 				/ 작성일자 : <td th:text="${#temporals.format(mrc1.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 				<td th:if="${mrc1.modifyDate !=null}">
@@ -24,7 +23,8 @@
 				<div>
 				<!-- 12/31 ~ 01/01 해당 창에서 댓글 수정 성공 -->
 					<form th:action="@{|/review/movie1/modify/${mrc1.id}|}" th:object="${MrcForm}" method="post">
-						<div>
+						<div class="comment-message">
+						<br>
 						<textarea th:if="${#authentication.getPrincipal().getUsername() == mrc1.author.username}"
 								   placeholder="수정 입력란" name="content" id="content" class="form-control"></textarea>
 						</div>
@@ -53,7 +53,7 @@
 						<textarea type="text" placeholder="리뷰를 입력하세요" name="content" 
 						          id="content" class="form-control" autofocus></textarea>
 					</div>
-      					<input type="submit" value="등록하기" class="btn btn-primary my-2">
+      					<input type="submit" value="등록하기" class="btn btn-warning my-2">
 				</div>
 			</form>
 				
@@ -73,6 +73,8 @@ Array.from(delete_elements).forEach(function(element) {
     	location.href = this.dataset.uri;
     });
 });
+
+
 
 </script>
 </html>

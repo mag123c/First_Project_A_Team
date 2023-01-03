@@ -1,4 +1,5 @@
 
+
 .movie{
 	display:flex;
 	justify-content : space-bewteen;
@@ -28,7 +29,13 @@
 	background-color : #292826;
 	color : white;
 	margin-bottom : 1vh;
-	
+	font-size : 5px;
+}
+.movie .review .view .commentview .pretext{
+	font-size:20px;
+	font-family: 'GmarketSans';
+	overflow: auto;
+	white-space: pre-wrap; 
 }
 
 .movie .review .commentcreate{	
