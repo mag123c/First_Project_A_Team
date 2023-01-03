@@ -125,16 +125,16 @@
             </div>
           <div id="test">
             <div class="container_S">
-				<a th:href="@{/releasemovie/create}" class="btn btn-primary">댓글 등록하기</a>
+				<a th:href="@{/releasemovie/create}" class="btn btn-primary" id="button">댓글 등록하기</a>
 			</div>
 			
         <table class="table">
         <thead class="table-dark">
             <tr class="text-center">
-                <th width=54%>댓글</th>                
+                <th width=56%>댓글</th>                
                 <th width=14%>작성자</th>
-                <th width=6%></th>                
-                <th width=6%></th>                
+                <th width=5%></th>                
+                <th width=5%></th>                
                 <th width=20%>
                 	작성일자(수정일자)
                 </th>                
@@ -142,16 +142,18 @@
         </thead>
         <tbody class = "content-table">
             <tr th:each="releasemovie, loop : ${paging}" class="text-center">
-                <td class="cell" style="width:54%;"><pre class="pretext" th:text="${releasemovie.subject}"></pre></td>
-                <td class="cell"><span th:text="${releasemovie.author.username}"></span></td>      
-                <td class="cell">
+                <td width=56% class="cell"> 
+                    <pre id="text-content" th:text="${releasemovie.subject}"></pre>
+                </td>
+                <td width=14% class="cell"><span th:text="${releasemovie.author.username}"></span></td>      
+                <td width=5% class="cell">
                 <a th:href="@{|/releasemovie/modify/${releasemovie.id}|}" 
             	class="btn btn-sm btn-outline-secondary" id="table-button-modify"
             	sec:authorize="isAuthenticated()"
             	th:if="${releasemovie.author !=null 
             	and #authentication.getPrincipal().getUsername() == releasemovie.author.username}"
             	>수정</a></td>
-                <td class="cell">
+                <td width=5% class="cell">
                 <a href="javascript:void(0);" 
             	th:data-uri="@{|/releasemovie/delete/${releasemovie.id}|}" 
             	class="delete btn btn-sm btn-outline-secondary" id="table-button-delete"
@@ -159,36 +161,36 @@
             	th:if="${releasemovie.author !=null 
             	and #authentication.getPrincipal().getUsername() == releasemovie.author.username}" 
             	>삭제</a></td>    
-                <td class="cell">
+                <td width=20% class="cell">
                 	<span th:text="${#temporals.format(releasemovie.createDate, 'yyyy-MM-dd HH:mm')}"></span><br>
                 	<span id="modify-time" th:text="${#temporals.format(releasemovie.modifyDate, '(yyyy-MM-dd HH:mm)')}"></span>
                 </td>
             </tr>    
         </tbody>
     </table>
-    <div th:if="${!paging.isEmpty()}">
+   <div th:if="${!paging.isEmpty()}">
     	<ul class="pagination justify-content-center">
     		<li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-    			<a class="page-link" href="javascript:void(0);" 
-    			th:data-page="${paging.number-1}">
-    				<span> < </span>
+    			<a class="page-link" 
+    			th:href="@{|?page=${paging.number-1}|}">
+    				<span><</span>
     			</a>
     		</li>
     		<li th:each="page : ${#numbers.sequence(0, paging.totalPages-1)}"
-    			th:if="${page>=paging.number-2 and page <=paging.number+2}"
+    			th:if="${page>=paging.number-1 and page <=paging.number+1}"
     			th:classappend="${page == paging.number} ? 'active'"
     			class="page-item">
-    			<a th:text="${page}+1" class="page-link"
-    			href="javascript:void(0);" th:data-page="${page}"></a>
+    			<a th:text="${page}+1" class="page-link" 
+    			 th:href="@{|?page=${page}|}"></a>
     		</li>
     		<li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-    			<a class="page-link" href="javascript:void(0);"
-    			th:data-page="${paging.number+1}">
-    				<span> > </span>
+    			<a class="page-link" 
+    			th:href="@{|?page=${paging.number+1}|}">
+    				<span>></span>
     			</a>
-    		</li> 
+    		</li>
     	</ul>
-     </div>    
+    </div>
    </div>
 </div>
      <section th:replace="~{test :: testFragment}"></section>

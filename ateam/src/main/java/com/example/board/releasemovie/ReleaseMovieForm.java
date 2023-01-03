@@ -1,7 +1,5 @@
 package com.example.board.releasemovie;
 
-import java.time.LocalDateTime;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
