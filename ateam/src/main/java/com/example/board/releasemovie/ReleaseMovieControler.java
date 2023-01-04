@@ -43,7 +43,8 @@ import lombok.RequiredArgsConstructor;
 		//페이징
 	    @GetMapping(value = "/detail/{id}")
 	    public String detail(Model model, @PathVariable("id") Integer id) {
-	    	ReleaseMovie releaseMovie = this.releaseMovieService.getReleasemMovie(id);
+	    	ReleaseMovie releaseMovie = this.releaseMovieService.getReleasemMovie(
+	    			id);
 	        model.addAttribute("releaseMovie", releaseMovie);
 	        return "redirect:/releasemovie/list";
 	    }
@@ -113,9 +114,9 @@ import lombok.RequiredArgsConstructor;
 		@GetMapping("/delete/{id}")
 		public String delete(@PathVariable("id") Integer id, Principal principal) {
 			ReleaseMovie releaseMovie = this.releaseMovieService.getReleasemMovie(id);
-			if(!releaseMovie.getAuthor().getUsername().equals(principal.getName())) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "권한 없음");
-			}
+//			if(!releaseMovie.getAuthor().getUsername().equals(principal.getName())) {
+//				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "권한 없음");
+//			}
 			this.releaseMovieService.delete(releaseMovie);
 			return "redirect:/releasemovie/list";
 				

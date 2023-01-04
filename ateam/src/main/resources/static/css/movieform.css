@@ -17,14 +17,18 @@
 }
 /*1229수정*/
 
-#text-content{
+.cell pre{
 	text-align: left;
-	margin-left: 10vh;
-	overflow: auto;
-	white-space: pre-line;
+	margin-left: 8vh;
+	padding:10px;
+	overflow:auto;
+	white-space: normal;
 	font-family: 'GmarketSans';
-	font-weight: 500;
+	font-weight: bolder;
 	font-size: 15px;
+	vertical-align: middle;
+	word-break:break-all;
+	
 }
 
 
