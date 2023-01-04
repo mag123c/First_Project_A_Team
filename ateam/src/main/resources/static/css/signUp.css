@@ -9,6 +9,10 @@
     --colorRed : red;
 }
 
+.alert{
+	color:red;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -68,7 +72,7 @@
 }
 #viewDiv_S {
     width: 500px;
-    height: 70vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     place-self: center;

@@ -1,4 +1,7 @@
 <html layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/css/loginform.css}" rel="stylesheet" />
+</head>
 <div layout:fragment="content" class="container my-3">
     <form th:action="@{/user/login}" method="post">
         <div th:if="${param.error}">

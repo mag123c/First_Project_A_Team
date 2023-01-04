@@ -33,7 +33,10 @@ public class NoticeService {
     public Notice getnotice(Integer id) {  
         Optional<Notice> notice = this.noticeRepository.findById(id);
         if (notice.isPresent()) {
-            return notice.get();
+        	Notice notice1 = notice.get();
+        	notice1.setView(notice1.getView()+1);
+        	this.noticeRepository.save(notice1);
+            return notice1;
         } else {
             throw new DataNotFoundException("notice not found");
         }
