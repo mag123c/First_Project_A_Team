@@ -26,20 +26,28 @@
             </div>
             <div class="my-3">
             <a th:href="@{|/question/modify/${question.id}|}" 
-            	class="btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+            	class="btn btn-sm btn-outline-secondary" sec:authorize="hasRole('USER')"
             	th:if="${question.author !=null 
             	and #authentication.getPrincipal().getUsername() == question.author.username}" 
             	th:text="수정">
-            	</a>
-            	<a href="javascript:void(0);" 
+            </a>
+          
+            <a href="javascript:void(0);" 
             	th:data-uri="@{|/question/delete/${question.id}|}" 
-            	class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+            	class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('USER')"
             	th:if="${question.author !=null 
             	and #authentication.getPrincipal().getUsername() == question.author.username}" 
+            	th:text="삭제">
+              </a>
+           <a href="javascript:void(0);" 
+            	th:data-uri="@{|/question/delete/${question.id}|}" 
+            	class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('ADMIN')"
+            	
             	th:text="삭제">
             	</a>
            
             </div>
+           
         </div>
     </div>
     <h5 class="border-bottom my-3 py-2" 
@@ -63,7 +71,7 @@
                     </div>
                 </div>
                 <div class="my-3">
-        
+
 	            	<a th:href="@{|/answer/modify/${answer.id}|}" 
 	            	class="btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
 	            	th:if="${answer.author !=null and #authentication.getPrincipal().getUsername() == answer.author.username}" 
@@ -77,6 +85,7 @@
 	            	th:text="삭제">
 	            	</a>
             	</div>
+            	
             </div>
         </div>
     </div>
@@ -85,8 +94,8 @@
 		<div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
 			<div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div>
 		</div>
-		<textarea th:field="*{content}" rows="15" cols="15" name="content" id="content" class="form-control"></textarea>
-		<input type="submit" value="답변 등록하기" class="btn btn-primary my-2">
+		<textarea sec:authorize="hasRole('ADMIN')" th:field="*{content}" rows="15" cols="15" name="content" id="content" class="form-control"></textarea>
+		<input sec:authorize="hasRole('ADMIN')" type="submit" value="답변 등록하기" class="btn btn-primary my-2">
 	</form>
 </div>
 
