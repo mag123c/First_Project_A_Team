@@ -23,5 +23,19 @@
 	height:150px;
 	overflow : auto;
 }
+img{
+	height:225px;
+}
+td{
+	color : white;
+}
+text{
+	margin-left : 10px;
+	line-height:50px;
+	padding : 5px;
+	font-size : larger;
+	background-color : #f9d142;
+	border-radius: 10px;
+}
 
 

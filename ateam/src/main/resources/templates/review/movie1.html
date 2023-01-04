@@ -30,13 +30,17 @@
 						</div>
 	            		<input type="submit" class="btn btn-sm btn-outline-secondary"
 		                sec:authorize="isAuthenticated()"
-		                th:if="${mrc1.author != null and #authentication.getPrincipal().getUsername() == mrc1.author.username}"
+		                th:if="${#authentication.getPrincipal().getUsername() == mrc1.author.username}"
 		                value="수정" style="width:50px; height:50px;"></input>
 	                </form>
 	                <input href="javascript:void(0);" th:data-uri="@{|/review/movie1/delete/${mrc1.id}|}"
-	                class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
-	                th:if="${mrc1.author != null and #authentication.getPrincipal().getUsername() == mrc1.author.username}"
+	                class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('USER')"
+	                th:if="${#authentication.getPrincipal().getUsername() == mrc1.author.username}"
 	                value="삭제" style="width:50px; height:50px;"></input>
+	                <!-- 관리자 삭제기능 -->
+	                <input href="javascript:void(0);" th:data-uri="@{|/review/movie1/delete/${mrc1.id}|}"
+	                class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('ADMIN')"
+	                value="관리자의 강력삭제"></input>
        			</div>
        		</div>
 		</div>

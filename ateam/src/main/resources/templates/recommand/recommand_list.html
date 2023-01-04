@@ -27,8 +27,11 @@
 		               		 th:if="${recommand.author != null and #authentication.getPrincipal().getUsername() == recommand.author.username}"
 		               	 	th:text="수정"></a>
 		               	 	<a href="javascript:void(0);" th:data-uri="@{|/recommandMain/delete/${recommand.id}|}"
-                				class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+                				class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('USER')"
               				  th:if="${recommand.author != null and #authentication.getPrincipal().getUsername() == recommand.author.username}"
+              				  th:text="삭제"></a>
+              				 <a href="javascript:void(0);" th:data-uri="@{|/recommandMain/delete/${recommand.id}|}"
+                				class="delete btn btn-sm btn-outline-secondary" sec:authorize="hasRole('ADMIN')"
               				  th:text="삭제"></a>
 		        	</td>
 		        	<td class="centerc"><span th:if="${recommand.author !=null}" th:text="${recommand.author.username}"></span></td>

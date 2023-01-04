@@ -32,12 +32,13 @@ public class RecommandController {
 	private final UserService userService;
 	
 	
-	
+    @PreAuthorize("isAuthenticated()")
 	@GetMapping("")
 	public String recommandRoot() {
 		return "recommand/recommandMain";
 	}
 	
+    @PreAuthorize("isAuthenticated()")
 	@GetMapping("/list")
 	public String recommandList(Model model, RecommandForm recommandForm) {
 		// 정보 view단으로 보내기.  
@@ -50,13 +51,13 @@ public class RecommandController {
 
 	// 질문등록 -------------------------------------------------------------------
 	
-	
+    @PreAuthorize("isAuthenticated()")
 	@GetMapping("/list/create")
 	public String create(RecommandForm recommandForm) {
 		return "recommand/recommand_create";
 	}
 	
-	
+    @PreAuthorize("isAuthenticated()")
 	@PostMapping("/list/create")
 	public String create(@Valid RecommandForm recommandForm, 
 			BindingResult bindingResult, Principal principal) {
@@ -72,7 +73,7 @@ public class RecommandController {
 		return "redirect:/recommandMain/list";   // /뒤에 redirect를 할 경우, localhost:8080뒤에 해당경로가 바로 붙고, /없이 recommandMain/list할 경우, 현재 들어가있는 주소에 합쳐진다.
 	}
 	
-	
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/modify/{id}")
     public String recommandModify(RecommandForm recommandForm,  @PathVariable("id") Integer id, Principal principal) {
 
@@ -88,7 +89,7 @@ public class RecommandController {
         
     }
     
-    
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/modify/{id}")
     public String recommandModify(@Valid RecommandForm recommandForm, BindingResult bindingResult,  Principal principal, @PathVariable("id") Integer id) {
 
@@ -108,12 +109,13 @@ public class RecommandController {
    
     
     // 삭제 관련 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/delete/{id}")
     public String recommandDelete(Principal principal, @PathVariable("id") Integer id) {
     	Recommand recommand = this.recommandService.getRecommand(id);
-        if (!recommand.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
-        }
+//        if (!recommand.getAuthor().getUsername().equals(principal.getName())) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
+//        }
         this.recommandService.delete(recommand);
         return "redirect:/recommandMain/list";
     }

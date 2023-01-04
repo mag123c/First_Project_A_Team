@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Controller;
 
@@ -49,7 +50,9 @@ public class Question {
 	
 	@ManyToMany
 	Set<SiteUser> voter;
-	  
+	
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int view;	  
 
 
 	

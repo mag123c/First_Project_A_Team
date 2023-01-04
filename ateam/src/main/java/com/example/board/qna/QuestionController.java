@@ -31,6 +31,7 @@ public class QuestionController {
 	private final QuestionService questionService;
 	private final UserService userService;
 
+    @PreAuthorize("isAuthenticated()")
 	@GetMapping("/list")
     public String list(Model model, @RequestParam(value="page", defaultValue="0") int page, @RequestParam(value="kw", defaultValue="") String kw) {
         Page<Question> paging = this.questionService.getList(page,kw);
@@ -39,6 +40,7 @@ public class QuestionController {
         return "/qna/question_list";
     }
     
+    @PreAuthorize("isAuthenticated()")
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
     	Question question = this.questionService.getQuestion(id);
@@ -46,6 +48,7 @@ public class QuestionController {
         return "/qna/question_detail";
     }
     
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/create")
     public String questionCreate(QuestionForm questionForm) {
         return "/qna/question_form";

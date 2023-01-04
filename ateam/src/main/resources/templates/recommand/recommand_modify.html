@@ -1,4 +1,7 @@
 <html layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/css/recommandcss2.css}" rel="stylesheet" />
+</head>
 <div layout:fragment="content" class="container">
     <h5 class="my-3 border-bottom pb-2">게시물 수정하기</h5>
     <form th:object="${recommandForm}" method="post">

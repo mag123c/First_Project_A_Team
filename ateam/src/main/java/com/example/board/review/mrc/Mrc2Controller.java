@@ -84,9 +84,9 @@ public class Mrc2Controller {
     @GetMapping("/delete/{id}")
     public String mrc2Delete(Principal principal, @PathVariable("id") Integer id) {
         Mrc2 mrc2 = this.mrc2Service.getMrc(id);
-        if (!mrc2.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
-        }
+//        if (!mrc2.getAuthor().getUsername().equals(principal.getName())) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
+//        }
         this.mrc2Service.delete(mrc2);
         return "redirect:/review/movie2";
     }
