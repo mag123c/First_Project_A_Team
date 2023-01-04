@@ -25,7 +25,8 @@
                 <th>작성자</th>
                 <th>답변상태</th>
                 <th>작성일자</th>
-                <th>조회수</th>  
+                <th>조회수</th> 
+                  
             </tr>
         </thead>
         <tbody>
@@ -38,8 +39,8 @@
                  <td><span th:if="${question.author !=null}" th:text="${question.author.username}"></span></td> 
  
                   <td>
-                   <span th:if="${question.answerList.size() > 0}" th:text="답변완료"></span>
-                   <span th:if="${question.answerList.size() == 0}" th:text="답변대기"></span>
+                  <div class="text-box"><span th:if="${question.answerList.size() > 0}" th:text="답변완료"></span></div> 
+                   <div class="text-box1"><span th:if="${question.answerList.size() == 0}" th:text="답변예정"></span></div>
                   </td>
                       
                  
@@ -47,7 +48,6 @@
                              
                 <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
                 <td th:text="${question.view}"></td>
-                
                 
             </tr>
         </tbody>
