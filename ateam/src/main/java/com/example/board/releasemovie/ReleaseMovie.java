@@ -27,7 +27,7 @@ public class ReleaseMovie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 500)
+    @Column(length = 1000)
     private String subject;
 
     private LocalDateTime createDate;

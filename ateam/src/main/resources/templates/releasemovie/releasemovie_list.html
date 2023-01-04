@@ -131,40 +131,48 @@
         <table class="table">
         <thead class="table-dark">
             <tr class="text-center">
-                <th width=56%>댓글</th>                
+                <th width=53%>댓글</th>                
                 <th width=14%>작성자</th>
                 <th width=5%></th>                
                 <th width=5%></th>                
-                <th width=20%>
+                <th width=15%>
                 	작성일자(수정일자)
+                </th>
+                <th width=8%>
                 </th>                
             </tr>
         </thead>
         <tbody class = "content-table">
             <tr th:each="releasemovie, loop : ${paging}" class="text-center">
-                <td width=56% class="cell"> 
-                    <pre id="text-content" th:text="${releasemovie.subject}"></pre>
+                <td class="cell"> 
+                    <pre th:text="${releasemovie.subject}"></pre>
                 </td>
-                <td width=14% class="cell"><span th:text="${releasemovie.author.username}"></span></td>      
-                <td width=5% class="cell">
+                <td class="cell"><span th:text="${releasemovie.author.username}"></span></td>      
+                <td class="cell">
                 <a th:href="@{|/releasemovie/modify/${releasemovie.id}|}" 
             	class="btn btn-sm btn-outline-secondary" id="table-button-modify"
             	sec:authorize="isAuthenticated()"
             	th:if="${releasemovie.author !=null 
             	and #authentication.getPrincipal().getUsername() == releasemovie.author.username}"
             	>수정</a></td>
-                <td width=5% class="cell">
+                <td class="cell">
                 <a href="javascript:void(0);" 
             	th:data-uri="@{|/releasemovie/delete/${releasemovie.id}|}" 
             	class="delete btn btn-sm btn-outline-secondary" id="table-button-delete"
             	sec:authorize="isAuthenticated()"
             	th:if="${releasemovie.author !=null 
             	and #authentication.getPrincipal().getUsername() == releasemovie.author.username}" 
-            	>삭제</a></td>    
-                <td width=20% class="cell">
+            	>삭제</a></td>
+                <td class="cell">
                 	<span th:text="${#temporals.format(releasemovie.createDate, 'yyyy-MM-dd HH:mm')}"></span><br>
                 	<span id="modify-time" th:text="${#temporals.format(releasemovie.modifyDate, '(yyyy-MM-dd HH:mm)')}"></span>
                 </td>
+            	<td class="cell">
+                <a href="javascript:void(0);" 
+            	th:data-uri="@{|/releasemovie/delete/${releasemovie.id}|}" 
+            	class="delete btn btn-sm btn-outline-secondary" id="table-button-delete"
+            	sec:authorize="hasRole('ADMIN')" 
+            	>삭제</a></td>  
             </tr>    
         </tbody>
     </table>
@@ -205,4 +213,5 @@
     });
 });
 </script>
+
 </html>

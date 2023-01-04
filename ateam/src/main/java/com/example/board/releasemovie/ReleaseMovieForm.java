@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class ReleaseMovieForm {
     @NotEmpty(message="내용은 필수입니다")
-    @Size(max=200)
+    @Size(max=1000)
     private String subject;
     
     
