@@ -14,8 +14,7 @@
 	<div class="review"> <!-- 리뷰 적을곳 -->
 		<div class="view">
 			<div class="commentview" th:each="mrc2 : ${mrc2List}">
-				<td th:text="${mrc2.content}"></td>
-				<br>
+				<td><pre class="pretext" th:text="${mrc2.content}"></pre></td>
 				작성자 : <td th:text="${mrc2.author.username}"></td>				
 				/ 작성일자 : <td th:text="${#temporals.format(mrc2.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 				<td th:if="${mrc2.modifyDate !=null}">
@@ -59,9 +58,12 @@
 				
 			
 
-	</div>	
 	</div>
-	
+
+	</div>
+	<div style="margin-left : 20px; margin-top : 20px;">
+		<a th:href="@{/review/list}" class="btn btn-primary" id="button">뒤로</a>
+	</div>
 </div>
 </body>
 </div>

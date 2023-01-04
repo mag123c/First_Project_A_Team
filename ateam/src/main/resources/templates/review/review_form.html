@@ -19,8 +19,13 @@
 const delete_elements = document.getElementsByClassName("btn");
 Array.from(delete_elements).forEach(function(element) {
     element.addEventListener('click', function() {
-        if(confirm("수정되었습니다")) {
-            location.href = this.dataset.uri;
+        if(confirm("수정하시겠습니까")) {
+        	alert("수정되었습니다");
+            location.href = this.dataset.uri;            
+        }
+        else{
+        	alert("수정 취소");
+        	event.preventDefault();
         };
     });
 });
