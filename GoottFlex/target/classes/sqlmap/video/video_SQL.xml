@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="video">
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="VIDEO_ID">  
+	    <![CDATA[
+	    insert into VIDEO (TITLE, SUMMARY, VIDEO_URL, CREATE_COUNTRY, CREATE_YEAR, RECOMMAND, GRADE) 
+	    values (#{title}, #{summary}, #{url}, #{country}, #{year}, #{recommand}, #{grade})
+	    ]]>
+	</insert>
+</mapper>
