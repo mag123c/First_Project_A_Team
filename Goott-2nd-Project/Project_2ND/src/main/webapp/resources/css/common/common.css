@@ -1,0 +1,17 @@
+:root{
+    --logo-color:#FFCC00;
+    --logo-size: 60px;
+    --title-size: 25px;
+    --title-border: 600px;
+    --text-color:#CCCCCC;
+    --text-size: 17px;
+    --bg:#24292D;
+}
+
+#navArea{
+	height: 6rem;
+}
+
+#main_Con{
+	margin : 5% 15%;
+}

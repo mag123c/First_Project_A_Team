@@ -1,0 +1,28 @@
+:root{
+    --logo-color:#FFCC00;
+    --logo-size: 60px;
+    --title-size: 25px;
+    --title-border: 600px;
+    --text-color:#CCCCCC;
+    --text-size: 17px;
+    --bg:#24292D;
+}
+
+footer{
+	border:2px solid red;
+}
+
+#map{
+	border : solid red 3px;
+	width : 600px;
+	height : 300px;
+}
+
+#f_Con1{
+	margin-left : 20%;
+	margin-right : 20%;
+	display : flex;
+}
+#f_Con2{
+	margin-right : 20%;
+}

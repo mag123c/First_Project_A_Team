@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qna">
+<!-- qna 게시판 mybatis - 02.07 장재호 -->
+
+	<insert id="q_create">
+		insert into QNA(USER_ID, Q_SUBJECT, Q_CONTENT)
+		values (#{user_id}, #{q_subject}, #{q_content})
+	</insert>
+	
+	<select id="q_list" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.Q_CREATE_DATE
+		  from QNA Q, USER U
+		where Q.USER_ID = U.USER_ID
+	</select>
+	
+
+	<select id="detail" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.A_CREATE_DATE
+		 from QNA Q inner join USER U
+		  on Q.USER_ID = U.USER_ID
+		where Q.QUESTION_ID = #{question_id}
+	</select>
+
+	<update id="modify">
+		update QNA
+		   set Q_SUBJECT=#{q_subject}, Q_CONTENT=#{q_content}
+		 where QUESTION_ID=#{question_id}
+	</update>
+	
+	<delete id="delete">
+		delete from QNA
+		 where QUESTION_ID=#{question_id}
+	</delete>
+	
+	<!-- 검색 CONCAT 사용하여 %키워드%값 검색 - 02.07  장재호 -->
+	<!-- 검색1 : 닉네임 -->
+	<select id="qnaSearch1" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.Q_CREATE_DATE
+		  from QNA Q, USER U
+		 where Q.USER_ID = U.USER_ID
+		   and U.NICKNAME like CONCAT('%',#{keyword},'%')
+	</select>
+	
+	<!-- 검색2 : 제목 -->
+	<select id="qnaSearch2" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.Q_CREATE_DATE
+		  from QNA Q, USER U
+		 where Q.USER_ID = U.USER_ID
+		   and Q.Q_SUBJECT like CONCAT('%',#{keyword},'%')
+	</select>
+	
+	<!-- 검색3 : 내용 -->
+	<select id="qnaSearch3" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.Q_CREATE_DATE
+		  from QNA Q, USER U
+		 where Q.USER_ID = U.USER_ID
+		   and Q.Q_CONTENT like CONCAT('%',#{keyword},'%')
+	</select>
+
+	
+	<!-- 검색4 : 제목+내용 -->	
+	<!-- <select id="qnaSearch4" resultType="com.test.test1.board.qna.dto.QnaDto">
+		select Q.QUESTION_ID, U.NICKNAME, Q.Q_SUBJECT, Q.Q_CONTENT, Q.ANSWER, Q.Q_CREATE_DATE
+		  from QNA Q, USER U
+		 where Q.USER_ID = U.USER_ID
+		   and Q.Q_SUBJECT like CONCAT('%',#{keyword},'%')
+		    or Q.Q_CONTENT like CONCAT('%',#{keyword},'%')
+	</select> -->
+	
+	<!-- autoincrement 초기화 쿼리문 -> 추후 수정 - 02.07 장재호 -->
+	<!-- 
+	<select id="lastNum" resultType="int">
+		select QUESTION_ID
+		  from QNA
+		 order by QUESTION_ID asc limit 1
+	</select>
+	
+	<update id="autoincrementReset">
+		alter table QNA
+		auto_increment=${asc}
+	</update> -->
+	
+</mapper>
