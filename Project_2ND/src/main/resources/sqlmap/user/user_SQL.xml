@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	<insert id="insert">  
+	    <![CDATA[
+	    insert into USER (EMAIL, PASSWORD, NICKNAME, PHONE_NUM)  
+	    values (#{email}, #{password}, #{nickname}, #{phone_num})
+	    ]]>
+	</insert>
+	
+	<!-- 이메일 중복버튼 구현을 위한 조회 쿼리문 -->
+	<select id="email_check" resultType="String">
+		select EMAIL
+		  from USER
+		 where EMAIL=#{email}
+	</select>
+	
+	<!-- 회원 가입 버튼 클릭 시 email, nickname, phone_num 중복 체크 -->
+	<select id="signUpCheck" resultType="String">
+		select NICKNAME
+		  from USER
+		 where NICKNAME=#{nickname}
+	</select>
+	
+	<select id="login" resultType="String">
+		select NICKNAME
+		  from USER
+		 where EMAIL=#{email}
+	</select>
+	
+	<select id="pwGet" resultType="String">
+		select PASSWORD
+		  from USER
+		 where EMAIL=#{email}
+	</select>
+	
+	<select id="mydetail" resultType="hashMap">
+		<![CDATA[
+		select EMAIL, PASSWORD, NICKNAME, PHONE_NUM
+		  from USER
+		 where EMAIL=#{email}
+		 ]]>
+	</select>
+	
+	<update id="modify_detail">
+		update USER
+		   set NICKNAME=#{nickname}, PASSWORD=#{password}
+		 where EMAIL=#{email}
+	</update>
+	
+	<select id="list" resultType="hashMap">
+        select * from USER
+        order by USER_ID asc
+	</select>
+	
+	<select id="idx" resultType="int">
+		select USER_ID
+		  from USER
+		 where EMAIL=#{user}
+	</select>
+</mapper>
